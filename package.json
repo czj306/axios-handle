@@ -1,8 +1,8 @@
 {
   "name": "axios-handle",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "axios进一步封装",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
