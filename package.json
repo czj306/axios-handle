@@ -1,7 +1,7 @@
 {
   "name": "axios-handle",
   "version": "1.0.7",
-  "description": "",
+  "description": "axios进一步封装",
   "main": "dist/main.js",
   "private": "false",
   "scripts": {
