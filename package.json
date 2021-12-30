@@ -2,11 +2,27 @@
   "name": "axios-handle",
   "version": "1.0.7",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "private": "false",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack "
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:czj306/axios-handle.git"
+  },
+  "keywords": [
+    "axios",
+    "axios-handle"
+  ],
+  "author": "czj",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "qs": "^6.10.2",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
