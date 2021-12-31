@@ -1,5 +1,5 @@
 /.git 
-/dist/main.js 
+/dist
 /node_modules 
 /text.js 
 /yarn.lock 
