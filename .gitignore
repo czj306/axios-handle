@@ -1,0 +1,6 @@
+/.git 
+/dist/main.js 
+/node_modules 
+/text.js 
+/yarn.lock 
+#{".git":{},"dist":{"main.js":{}},"node_modules":{},"text.js":{},"yarn.lock":{}} 
