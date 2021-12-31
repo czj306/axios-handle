@@ -11,9 +11,9 @@ yarn add axios-handle -S
 
 # Usage
 ```bash
-const http = require('axios-handle');
+import Api from 'axios-handle';
 
-http.fetch('/sku/v2/skus').then(res => {
+Api.get('/sku/v2/skus').then(res => {
   console.log(res)
 }).catch(error => {
   console.log(error)
