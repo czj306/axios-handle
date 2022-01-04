@@ -7,8 +7,8 @@
  * @LastEditDate: 
  * @FilePath: ./index.js
  */
-import UserManage from './request.js'
-import qs from 'qs';
+const UserManage = require('./request.js');
+const qs = require('qs');
 
 /**
 * 参数数据处理
@@ -143,4 +143,6 @@ function Api() {}
 Api.prototype = new Axios();
 
 // 返回过渡对象的一个实例，该实例的原型继承了父对象
-export default new Api();
+module.exports = {
+    Api: new Api()
+}

@@ -7,7 +7,7 @@
  * @LastEditDate: 
  * @FilePath: ./request.js
  */
-import axios from 'axios';
+const axios = require('axios');
 
 class UserManage {
     // 存储cancel token
@@ -31,7 +31,7 @@ class UserManage {
         }
         // 创建axios实例
         this.$http = axios.create({
-            baseURL: 'api', // api的base_url
+            baseURL: this.baseURL, // api的base_url
             timeout: 60000 // 请求超时时间
         })
 
@@ -49,8 +49,10 @@ class UserManage {
 
         // respone拦截器
         this.$http.interceptors.response.use((response) => {
+            console.log('response', response);
             return Promise.resolve({ '$response': response });
         }, (error) => {
+            console.log('error', error);
             //请求取消时，也会进入error，根据axios.isCancel()：true--请求取消  false--请求失败
             //仅在请求失败时做后续处理
             if (axios.isCancel(error)) {
@@ -83,4 +85,7 @@ class UserManage {
 
 
 // 单例模块
-export default new UserManage();
+// export default new UserManage();
+module.exports = {
+    UserManage: new UserManage()
+}

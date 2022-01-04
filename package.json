@@ -1,9 +1,14 @@
 {
   "name": "axios-handle",
-  "version": "1.0.14",
+  "version": "1.0.17",
   "description": "axios进一步封装",
+  "private": true,
   "main": "dist/main.js",
+  "module": "dist/index.js",
+  "type": "commonjs",
+  "homepage": "https://github.com/czj306/axios-handle/blob/master/index.js",
   "scripts": {
+    "start": "webpack serve",
     "build": "webpack --config webpack.config.js --progress"
   },
   "repository": {
@@ -17,9 +22,16 @@
   "author": "czj",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.24.0"
+    "@babel/core": "^7.16.7",
+    "axios": "^0.24.0",
+    "babel-loader": "^8.2.3"
   },
   "devDependencies": {
     "qs": "^6.10.2"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }
