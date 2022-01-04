@@ -90,7 +90,42 @@ const methods = (url, method, data, params) => {
  */
 const alphabeticalSort = (a, b) => a.localeCompare(b);
 
-function Axios () {}
+
+function create(obj) {
+    function F() {};
+    F.prototype = obj;
+    // F.constructor = obj;
+    return new F();
+}
+
+const Axios = function () {}
+// 抽象函数
+Axios.prototype = {
+    get: function () {
+        return new Error('抽象方法不能调用');
+    },
+
+    post: function () {
+        return new Error('抽象方法不能调用');
+    },
+
+    patch: function () {
+        return new Error('抽象方法不能调用');
+    },
+
+    put: function () {
+        return new Error('抽象方法不能调用');
+    },
+
+    deleted: function () {
+        return new Error('抽象方法不能调用');
+    },
+}
+
+
+const Api = function () {}
+Api.prototype = new Axios();
+
 
 /**
  * 详情数据获取
@@ -99,7 +134,7 @@ function Axios () {}
  * @param {any} params q语句内部参数 对象
  * @param {any} external 外部参数 对象
  */
-Axios.prototype.get = (url, params = {}) => methods(url, 'get', undefined, params);
+ Api.prototype.get = (url, params = {}) => methods(url, 'get', undefined, params);
 
 /**
 *
@@ -108,7 +143,7 @@ Axios.prototype.get = (url, params = {}) => methods(url, 'get', undefined, param
 * @param {any} data 需要上传数据字段
 * @returns
 */
-Axios.prototype.post = (url, data) => methods(url, 'post', data);
+Api.prototype.post = (url, data) => methods(url, 'post', data);
 
 /**
 *
@@ -117,7 +152,7 @@ Axios.prototype.post = (url, data) => methods(url, 'post', data);
 * @param {any} data 需要上传数据字段
 * @returns
 */
-Axios.prototype.deleted = (url, data) => methods(url, 'delete', data);
+Api.prototype.deleted = (url, data) => methods(url, 'delete', data);
 
 /**
 *
@@ -126,7 +161,7 @@ Axios.prototype.deleted = (url, data) => methods(url, 'delete', data);
 * @param {any} data 需要上传数据字段
 * @returns
 */
-Axios.prototype.patch = (url, data) => methods(url, 'patch', data);
+Api.prototype.patch = (url, data) => methods(url, 'patch', data);
 
 /**
 *
@@ -135,14 +170,11 @@ Axios.prototype.patch = (url, data) => methods(url, 'patch', data);
 * @param {any} data 需要上传数据字段
 * @returns
 */
-Axios.prototype.put = (url, data) => methods(url, 'put', data);
+Api.prototype.put = (url, data) => methods(url, 'put', data);
 
 // 声明一个过渡函数对象
-function Api() {}
-// 过渡对象的原型继承对象
-Api.prototype = new Axios();
-
+const api = create(Api);
 // 返回过渡对象的一个实例，该实例的原型继承了父对象
 module.exports = {
-    Api: new Api()
+    Api: api
 }
