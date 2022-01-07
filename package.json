@@ -1,7 +1,7 @@
 {
   "name": "axios-handle",
   "version": "1.0.19",
-  "description": "axios封装",
+  "description": "axios封装测试",
   "main": "dist/main.js",
   "module": "dist/index.js",
   "type": "commonjs",
